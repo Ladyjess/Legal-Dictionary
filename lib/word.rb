@@ -24,8 +24,8 @@ class Word
     @id
   end
 
-  def add_word(new_word)
-    @definitions.push(new_word)
+  def add_definition(new_definition)
+    @definitions.push(new_definition)
   end
 
   def self.find_word(identification)
