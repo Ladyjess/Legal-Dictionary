@@ -1,5 +1,4 @@
 require "rspec"
-require "word"
 require "definition"
 
 
@@ -11,8 +10,7 @@ describe Definition do
   describe "#save" do
     it "saves a new definition" do
       test_definition = Definition.new("The communication of a statement that makes a false claim")
-      test_definition.save
-      expect(Definition.all).to eq [test_definition]
+      expect(test_definition.save).to eq [test_definition]
     end
   end
 
@@ -24,19 +22,12 @@ describe Definition do
 
   describe '.clear' do
     it 'empties the array' do
-      test_definition = Definition.new("Yearly obligations to a financial institution.")
-      test_definition.save
-      expect(Definition.clear).to eq []
+      test_definition = Definition.new("Yearly obligations to a financial institution.").save
+      Definition.clear
+      expect(Definition.all).to eq []
     end
   end
 
-  describe '#set_id' do
-    it "sets id for definition" do
-      test_definition = Definition.new("A writ which lies for the recovery of an estate by a personclaiming as issue in tail")
-      test_definition.save
-      expect(test_definition.set_id).to eq 2
-    end
-  end
 
   describe '#id' do
     it 'returns unique id' do
@@ -46,20 +37,21 @@ describe Definition do
     end
   end
 
-  describe '#add_definition' do
-    it 'allows users to add definitions' do
-      test_definition = Definition.new("The communication of a statement that makes a false claim")
-      test_definition = Definition.new({:vocabulary => "Defamation", :word_definition => "The communication of a statement that makes a false claim", :id => 3})
+  describe 'word_definition' do
+    it 'gives definition information' do
+      test_definition = Definition.new("Yearly obligations to a financial institution.")
+      test_definition.save
+      expect(test_definition.word_definition).to eq "Yearly obligations to a financial institution."
     end
   end
-
-  describe '.find' do
+  
+  describe '.find_by_def' do
     it "returns the information for a word" do
       test_definition = Definition.new("The communication of a statement that makes a false claim")
       test_definition.save
       test_definition2 = Definition.new("Yearly obligations to a financial institution.")
       test_definition2.save
-      expect(Definition.find(test_definition.id)).to eq (test_definition)
+      expect(Definition.find_by_def("Yearly obligations to a financial institution.")).to eq (test_definition2)
     end
   end
 end

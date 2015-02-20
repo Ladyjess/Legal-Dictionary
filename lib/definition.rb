@@ -4,7 +4,7 @@ class Definition
 
     def initialize(word_definition)
       @word_definition = word_definition
-      @id = set_id
+      @id = @@all_definitions.length + 1
     end
 
     def save
@@ -27,10 +27,10 @@ class Definition
       @id
     end
 
-    def self.find(a_definition)
+    def self.find_by_def(a_definition)
       found_definition = nil
       @@all_definitions.each do |definition|
-        if definition.id == a_definition
+        if definition.word_definition == a_definition
           found_definition = definition
         end
       end

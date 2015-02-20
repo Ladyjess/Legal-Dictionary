@@ -1,5 +1,6 @@
 require 'rspec'
 require 'word'
+require 'definition'
 
 
 describe Word do
@@ -46,13 +47,30 @@ describe Word do
     end
   end
 
-  describe '.find_word' do
+  describe '.find' do
     it 'returns the vocabulary' do
       test_word = Word.new({:vocabulary => "Attractive Nuisance", :word_definiton => "States that a landowner may be held liable for injuries to children trespassing on the land", :id => 1})
       test_word.save
       test_word2 = Word.new({:vocabulary => "Defamation", :word_definition => "The communication of a statement that makes a false claim", :id => 3})
       test_word2.save
-      expect(Word.find_word(1)).to eq test_word
+      expect(Word.find(test_word.id)).to eq test_word
+    end
+  end
+
+  describe '#set_id' do
+    it 'sets the id for a word' do
+      test_word = Word.new({:vocabulary => "Defamation", :word_definition => "The communication of a statement that makes a false claim", :id => 3})
+      test_word.save
+      expect(test_word.set_id).to eq 2
+    end
+  end
+
+  describe '#add_definition' do
+    it 'allows users to add definitions' do
+      test_word = Word.new({:vocabulary => "Defamation", :id => 3})
+      test_definition = Definition.new({:word_definition => "The communication of a statement that makes a false claim", :id => 3})
+      test_word.add_definition(test_definition)
+      expect(test_word.definitions).to eq [test_definition]
     end
   end
 end

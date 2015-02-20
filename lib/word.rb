@@ -5,7 +5,7 @@ class Word
   def initialize(attributes)
     @vocabulary = attributes[:vocabulary]
     @definitions = []
-    @id = @@all_words.length + 1
+    @id = set_id
   end
 
   def save
@@ -20,6 +20,10 @@ class Word
     @@all_words = []
   end
 
+  def set_id
+    @@all_words.length + 1
+  end
+
   def id
     @id
   end
@@ -28,10 +32,10 @@ class Word
     @definitions.push(new_definition)
   end
 
-  def self.find_word(identification)
+  def self.find(word_id)
     found_word = nil
     @@all_words.each do |word|
-      if word.id == identification
+      if word.id == word_id.to_i
         found_word = word
       end
     end

@@ -1,0 +1,26 @@
+<h1>Definition for your Word</h1>
+
+<div class="form-group">
+  <form action="/definitions" method="post">
+    <input id="word_id" name="word_id" value="<%= @word.id %>" type="hidden">
+
+    <label for="word_definition">Enter Definition:</label>
+    <input id="word_definition" name="word_definition" type="text" class="form-control">
+
+    <button type="submit">Add it!</button>
+  </form>
+</div>
+
+
+<% @new_definition.each do |definition| %>
+
+<ul>
+
+  <li class="word_definition"><%= definition.word_definition %> </li>
+
+</ul>
+
+<% end %>
+
+
+<a href="/">Go Back</a>
