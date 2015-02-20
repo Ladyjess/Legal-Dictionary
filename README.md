@@ -1,4 +1,4 @@
-##Legal Term Dictionary
+#Legal Term Dictionary
 
 This app allows users to study for the LSAT or their legal courses
 by adding in terms, legal statutes and other vocabulary to use as a study aid.

@@ -1,6 +1,6 @@
-<h1>Definitions for <%= @word.vocabulary %></h1>
+<h1><em>Definitions</em></h1>
 
-<form action="/word" method="post">
+<form action="/definition" method="post">
   <input id="word_id" name="word_id" value="<%= @word.id %>" type="hidden">
 
   <label for="word_definition">Enter Definition:</label>
@@ -15,3 +15,6 @@
   <% end %>
 
 </ul>
+
+
+<a href="/">Go Back</a>
