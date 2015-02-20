@@ -3,20 +3,20 @@
 This app allows users to study for the LSAT or their legal courses
 by adding in terms, legal statutes and other vocabulary to use as a study aid.
 
-#Author
+##Author
 
 Jessica Hori
 
 
-#Install
+##Install
 
-Enter your `terminal`
-Run `bundle`
-This will allow the app to use the required dependencies
-Then run `ruby app.rb`
-Open your browser and go to `localhost:4567`
+Enter your `terminal` .
+Run `bundle` .
+This will allow the app to use the required dependencies.
+Then run `ruby app.rb` .
+Open your browser and go to `localhost:4567` .
 
-#License
+##License
 
 GNU GPL v2.0
 
