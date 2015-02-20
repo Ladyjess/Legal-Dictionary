@@ -1,0 +1,17 @@
+<h1>Definitions for <%= @word.vocabulary %></h1>
+
+<form action="/word" method="post">
+  <input id="word_id" name="word_id" value="<%= @word.id %>" type="hidden">
+
+  <label for="word_definition">Enter Definition:</label>
+  <input id="word_definition" name="word_definition" type="text">
+
+  <button type="submit">Add it!</button>
+</form>
+
+<ul>
+  <% @word.definitions.each do |word| %>
+  <li class="word_definition"><%= word.word_definition %> </li>
+  <% end %>
+
+</ul>

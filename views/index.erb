@@ -1,0 +1,16 @@
+<H1>Legal Term Dictionary</h1>
+
+  <div class="form-group">
+    <form action="/words" method="post">
+      <label for="word">Enter your word:</label>
+      <input id="word" name="word" type="text" class="form-control">
+      <button type="submit" class="btn btn-warning">Add Word</button>
+    </form>
+  </div>
+
+
+  <ul>
+    <% @words.each do |word| %>
+    <li class="word"><a href="/word/<%= word.id %>"><%= word.vocabulary %></a></li>
+    <% end %>
+  </ul>
