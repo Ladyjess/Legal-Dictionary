@@ -1,11 +1,12 @@
 <h1><em>Definitions</em></h1>
 
+
 <form action="/definition" method="post">
   <input id="word_id" name="word_id" value="<%= @word.id %>" type="hidden">
 
   <label for="word_definition">Enter Definition:</label>
   <input id="word_definition" name="word_definition" type="text">
-
+</br>
   <button type="submit">Add it!</button>
 </form>
 
@@ -16,5 +17,6 @@
 
 </ul>
 
+</br>
 
 <a href="/">Go Back</a>

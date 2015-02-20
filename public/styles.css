@@ -1,0 +1,23 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: purple
+}
+
+.jumbotron {
+  background-color: orange;
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+}
+
+
+form {
+  width: 360px;
+  text-align: right;
+  margin: auto;
+  font-size: 25px;
+}
