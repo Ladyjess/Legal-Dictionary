@@ -18,7 +18,7 @@ post '/word' do
 end
 
 get '/word/:id' do
-  @word = Word.find_word(params[:id].to_i)
+  @word = Word.find(params[:id].to_i)
   erb :definition
 end
 
