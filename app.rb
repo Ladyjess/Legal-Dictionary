@@ -27,7 +27,7 @@ post '/definition' do
   @word_definition = params[:word_definition]
   @new_definition = Definition.new({:word_definition => @word_definition}).save
   @word = Word.find(params[:id].to_i)
-  @word.add_definition(@new_definition)
+  #@word.add_definition(@new_definition)
   @some_definitions = Definition.all
   redirect '/'
 end

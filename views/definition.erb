@@ -12,9 +12,10 @@
 
 <ul>
 
-<% @some_definitions.each do |definition| %>
-<p class="definition"><%= definition.word_definition %></p>
+<% @word.definitions.each do |word| %>
+<li class="word_definition"><%= word.word_definition %> </li>
 <% end %>
+
 
 </ul>
 
