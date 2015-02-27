@@ -68,9 +68,20 @@ describe Word do
   describe '#add_definition' do
     it 'allows users to add definitions' do
       test_word = Word.new({:vocabulary => "Defamation", :id => 3})
-      test_definition = Definition.new({:word_definition => "The communication of a statement that makes a false claim", :id => 3})
+      test_definition = Definition.new({:word_definition => "The communication of a statement that makes a false claim"})
       test_word.add_definition(test_definition)
       expect(test_word.definitions).to eq [test_definition]
+    end
+  end
+
+  describe "definitions" do
+    it "returns the definitions for a word" do
+      test_word = Word.new({:vocabulary => "Defamation", :id => 3})
+      test_definition = Definition.new({:word_definition => "The communication of a statement that makes a false claim"})
+      test_definition2 = Definition.new({:word_definition => "Yearly obligations to a financial institution."})
+      test_word.add_definition(test_definition)
+      test_word.add_definition(test_definition2)
+      expect(test_word.definitions).to eq [test_definition, test_definition2]
     end
   end
 end

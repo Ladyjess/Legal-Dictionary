@@ -1,5 +1,5 @@
 class Word
- attr_reader :vocabulary, :definitions
+ attr_reader :vocabulary
   @@all_words = []
 
   def initialize(attributes)
@@ -28,8 +28,12 @@ class Word
     @id
   end
 
-  def add_definition(new_definition)
-    @definitions.push(new_definition)
+  def definitions
+    @definitions
+  end
+
+  def add_definition(definition)
+    @definitions.push(definition)
   end
 
   def self.find(word_id)
