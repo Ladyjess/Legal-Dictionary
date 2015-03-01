@@ -10,7 +10,11 @@
 
 
   <ul>
+    <% if @words.any? %>
+
     <% @words.each do |word| %>
     <li class="word"><a href="/word/<%= word.id %>"><%= word.vocabulary %></a></li>
     <% end %>
   </ul>
+
+  <% end %>

@@ -1,4 +1,4 @@
-<h1><em>Definitions</em></h1>
+<h1>Definitions for <%= @word.vocabulary %>!</h1>
 
 
 <form action="/definition" method="post">
@@ -11,13 +11,14 @@
 </form>
 
 <ul>
-
-<% @word.definitions.each do |definition| %>
-<li><%= definition.word_definition %> </li>
+<% if @some_definitions.any? %>
+<% @some_definitions.each do |definition| %>
+<li><p><%= definition.word_definition %> </p></li>
 <% end %>
-
-
 </ul>
+<% else %>
+<p> There are no definitions yet!</p>
+<% end %>
 
 </br>
 

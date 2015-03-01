@@ -1,11 +1,9 @@
 class Definition
 
-  attr_reader :word_definition
-
     @@all_definitions = []
 
-    def initialize(properties)
-      @word_definition = properties[:word_definition]
+    def initialize(word_definition)
+      @word_definition = word_definition
       @id = @@all_definitions.length + 1
     end
 
@@ -25,13 +23,17 @@ class Definition
       @id
     end
 
-    # def self.find_by_def(a_definition)
-    #   found_definition = nil
-    #   @@all_definitions.each do |definition|
-    #     if definition.word_definition == a_definition
-    #       found_definition = definition
-    #     end
-    #   end
-    #   found_definition
-    # end
+    def word_definition
+      @word_definition
+    end
+
+    def self.find_by_def(a_definition)
+      found_definition = nil
+      @@all_definitions.each do |definition|
+        if definition.word_definition == a_definition
+          found_definition = definition
+        end
+      end
+      found_definition
+    end
   end

@@ -1,9 +1,9 @@
 class Word
- attr_reader :vocabulary
+
   @@all_words = []
 
-  def initialize(attributes)
-    @vocabulary = attributes[:vocabulary]
+  def initialize(vocabulary)
+    @vocabulary = vocabulary
     @definitions = []
     @id = set_id
   end
@@ -26,6 +26,10 @@ class Word
 
   def id
     @id
+  end
+
+  def vocabulary
+    @vocabulary
   end
 
   def definitions
