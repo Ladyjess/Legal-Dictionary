@@ -2,7 +2,7 @@
 
 
 <form action="/definition" method="post">
-  <input id="word_id" name="word_id" value="<%= @word.id %>" type="hidden">
+  <input id="id" name="id" value="<%= @word.id %>" type="hidden">
 
   <label for="word_definition">Enter Definition:</label>
   <input id="word_definition" name="word_definition" type="text">
@@ -12,8 +12,8 @@
 
 <ul>
 
-<% @word.definitions.each do |word| %>
-<li class="word_definition"><%= word.word_definition %> </li>
+<% @word.definitions.each do |definition| %>
+<li><%= definition.word_definition %> </li>
 <% end %>
 
 

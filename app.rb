@@ -18,7 +18,7 @@ post '/word' do
 end
 
 get '/word/:id' do
-  @word = Word.find(params[:id].to_i)
+  @word = Word.find(params["id"].to_i)
   @some_definitions = @word.definitions
   erb :definition
 end
@@ -26,7 +26,7 @@ end
 post '/definition' do
   @word_definition = params["word_definition"]
   @new_definition = Definition.new({:word_definition => @word_definition}).save
-  @word = Word.find(params[:id].to_i)
+  @word = Word.find(params["id"].to_i)
   @word.add_definition(@new_definition)
   @some_definitions = Definition.all
   redirect '/'
