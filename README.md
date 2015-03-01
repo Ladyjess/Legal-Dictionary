@@ -3,7 +3,7 @@
 This app allows users to study for the LSAT or their legal courses
 by adding in terms, legal statutes and other vocabulary to use as a study aid.
 
-Incomplete. Routing looks correct and it still is not seeing my add definition method.
+Incomplete. Can add definitions, doesnt recognize word_definition method when you click on a word to view these definitions. 
 
 ##Author
 
