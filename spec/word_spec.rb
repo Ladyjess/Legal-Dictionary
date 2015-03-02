@@ -56,15 +56,15 @@ describe Word do
       expect(Word.find(test_word.id)).to eq test_word
     end
   end
-
-  describe '#set_id' do
-    it 'sets the id for a word' do
-      test_word = Word.new("Defamation")
-      test_word.save
-      expect(test_word.set_id).to eq 2
-    end
-  end
-
+#
+#   describe '#set_id' do
+#     it 'sets the id for a word' do
+#       test_word = Word.new("Defamation")
+#       test_word.save
+#       expect(test_word.set_id).to eq 2
+#     end
+#   end
+#
   describe '#add_definition' do
     it 'allows users to add definitions' do
       test_word = Word.new("Defamation")

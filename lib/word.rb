@@ -1,11 +1,11 @@
 class Word
 
-  @@all_words = []
+@@all_words = []
 
   def initialize(vocabulary)
     @vocabulary = vocabulary
     @definitions = []
-    @id = set_id
+    @id = @@all_words.length + 1
   end
 
   def save
@@ -20,16 +20,12 @@ class Word
     @@all_words = []
   end
 
-  def set_id
-    @@all_words.length + 1
+  def vocabulary
+    @vocabulary
   end
 
   def id
     @id
-  end
-
-  def vocabulary
-    @vocabulary
   end
 
   def definitions
@@ -49,14 +45,8 @@ class Word
     end
     found_word
   end
+
 end
-
-
-
-
-
-
-
 
 
 

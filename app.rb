@@ -5,6 +5,7 @@ require './lib/word.rb'
 require './lib/definition.rb'
 require 'pry'
 
+
 get '/' do
   @words = Word.all
   erb :index
@@ -25,7 +26,8 @@ end
 
 post '/definition' do
   @word_definition = params["word_definition"]
-  @new_definition = Definition.new(@word_definition).save
+  @new_definition = Definition.new(@word_definition)
+  @new_definition.save
   @word = Word.find(params["id"].to_i)
   @word.add_definition(@new_definition)
   @some_definitions = Definition.all
@@ -37,10 +39,9 @@ end
 
 
 
-
 #
 #HASH INITIALIZATION
-# 
+#
 # get '/' do
 #   @words = Word.all
 #   erb :index

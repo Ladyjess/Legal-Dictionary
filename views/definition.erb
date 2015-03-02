@@ -1,6 +1,5 @@
 <h1>Definitions for <%= @word.vocabulary %>!</h1>
 
-
 <form action="/definition" method="post">
   <input id="id" name="id" value="<%= @word.id %>" type="hidden">
 
@@ -11,14 +10,15 @@
 </form>
 
 <ul>
-<% if @some_definitions.any? %>
-<% @some_definitions.each do |definition| %>
+  <% if @some_definitions.any? %>
+  <% @some_definitions.each do |definition| %>
 <li><p><%= definition.word_definition %> </p></li>
-<% end %>
+  <% end %>
 </ul>
-<% else %>
+
+  <% else %>
 <p> There are no definitions yet!</p>
-<% end %>
+  <% end %>
 
 </br>
 
