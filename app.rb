@@ -6,6 +6,7 @@ require './lib/definition.rb'
 require 'pry'
 
 
+
 get '/' do
   @words = Word.all
   erb :index
@@ -13,9 +14,10 @@ end
 
 post '/word' do
   @vocabulary = params["vocabulary"]
-  Word.new(@vocabulary).save
+  @word = Word.new({ :vocabulary => @vocabulary })
+  @word.save
   @words = Word.all
-  erb :index
+  redirect '/'
 end
 
 get '/word/:id' do
@@ -26,45 +28,10 @@ end
 
 post '/definition' do
   @word_definition = params["word_definition"]
-  @new_definition = Definition.new(@word_definition)
+  @new_definition = Definition.new({:word_definition => @word_definition})
   @new_definition.save
   @word = Word.find(params["id"].to_i)
   @word.add_definition(@new_definition)
   @some_definitions = Definition.all
-  erb :success
+  redirect '/'
 end
-
-
-
-
-
-
-#
-#HASH INITIALIZATION
-#
-# get '/' do
-#   @words = Word.all
-#   erb :index
-# end
-#
-# post '/word' do
-#   @vocabulary = params["vocabulary"]
-#   @word = Word.new({ :vocabulary => @vocabulary }).save
-#   @words = Word.all
-#   redirect '/'
-# end
-#
-# get '/word/:id' do
-#   @word = Word.find(params["id"].to_i)
-#   @some_definitions = @word.definitions
-#   erb :definition
-# end
-#
-# post '/definition' do
-#   @word_definition = params["word_definition"]
-#   @new_definition = Definition.new({:word_definition => @word_definition}).save
-#   @word = Word.find(params["id"].to_i)
-#   @word.add_definition(@new_definition)
-#   @some_definitions = Definition.all
-#   redirect '/'
-# end
